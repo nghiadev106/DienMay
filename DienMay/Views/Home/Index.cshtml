@@ -1,0 +1,577 @@
+﻿@{
+    ViewData["Title"] = "Trang chủ";
+
+    //Danh sách slides
+    var ListSlides = (List<DienMay.Data.Slide>)ViewBag.ListSlides;
+
+    //Danh sách danh mục sản phẩm
+    var listCategories = (List<DienMay.Data.Category>)ViewBag.ListCategories;
+    //Danh sách sản phẩm hot
+    var ListProductHot = (List<DienMay.Data.Product>)ViewBag.ListProductHot;
+    //Danh sách sản phẩm mới
+    var ListProductNew = (List<DienMay.Data.Product>)ViewBag.ListProductNew;
+
+    var TuLAnh = (List<DienMay.Data.Product>)ViewBag.TuLAnh;
+
+    var Tivi = (List<DienMay.Data.Product>)ViewBag.Tivi;
+    var MayGiat = (List<DienMay.Data.Product>)ViewBag.MayGiat;
+
+    //Danh sách tin tức
+    var ListNews = (List<DienMay.Data.News>)ViewBag.ListNews;
+}
+
+<main id="main" class="">
+    <div id="content" role="main" class="content-area">
+        <section class="section" id="section_1863340573">
+            <div class="bg section-bg fill bg-fill  bg-loaded">
+            </div><!-- .section-bg -->
+            <div class="section-content relative">
+                <div class="slider-wrapper relative" id="slider-290480040">
+                    <div class="slider slider-nav-circle slider-nav-large slider-nav-light slider-style-normal"
+                         data-flickity-options='{
+            "cellAlign": "center",
+            "imagesLoaded": true,
+            "lazyLoad": 1,
+            "freeScroll": false,
+            "wrapAround": true,
+            "autoPlay": 6000,
+            "pauseAutoPlayOnHover" : true,
+            "prevNextButtons": true,
+            "contain" : true,
+            "adaptiveHeight" : true,
+            "dragThreshold" : 10,
+            "percentPosition": true,
+            "pageDots": true,
+            "rightToLeft": false,
+            "draggable": true,
+            "selectedAttraction": 0.1,
+            "parallax" : 0,
+            "friction": 0.6        }'>
+
+                        @if (ListSlides.Count() > 0)
+                        {
+                            foreach (var item in ListSlides)
+                            {
+                                <div class="img has-hover x md-x lg-x y md-y lg-y" id="image_458223505">
+                                    <div class="img-inner dark">
+                                        <img width="1900" height="715" src="@item.Logo" class="attachment-original size-original" alt="@item.Name" sizes="(max-width: 1900px) 100vw, 1900px" />
+                                    </div>
+
+                                    <style scope="scope">
+
+                                        #image_458223505 {
+                                            width: 100%;
+                                        }
+                                    </style>
+                                </div>
+                            }
+                        }
+
+                    </div>
+                    <div class="loading-spin dark large centered"></div>
+                    <style scope="scope">
+                    </style>
+                </div><!-- .ux-slider-wrapper -->
+            </div><!-- .section-content -->
+
+            <style scope="scope">
+                #section_1863340573 {
+                    padding-top: 0px;
+                    padding-bottom: 0px;
+                }
+            </style>
+        </section>
+
+        <section class="section" id="section_580708068">
+            <div class="bg section-bg fill bg-fill  bg-loaded">
+            </div><!-- .section-bg -->
+            <div class="section-content relative">
+                <div class="row" id="row-1616781261">
+                    <div class="col div-no-padding small-12 large-12" data-animate="bounceIn">
+                        <div class="col-inner text-center">
+                            <h3 class="title-home" style="text-align: center;">SẢN PHẨM MỚI</h3>
+                            <div class="row large-columns-5 medium-columns-3 small-columns-2 row-small slider row-slider slider-nav-circle slider-nav-push" data-flickity-options='{"imagesLoaded": true, "groupCells": "100%", "dragThreshold" : 5, "cellAlign": "left","wrapAround": true,"prevNextButtons": true,"percentPosition": true,"pageDots": false, "rightToLeft": false, "autoPlay" : false}'>
+                                @if (ListProductNew.Count() > 0)
+                                {
+                                    foreach (var item in ListProductNew)
+                                    {
+                                        <div class="col">
+                                            <div class="col-inner">
+                                                @if (item.PriceDiscount > 0 && item.Price > 0)
+                                                {
+                                                    <div class="badge-container absolute left top z-1">
+                                                        <div class="callout badge badge-circle"><div class="badge-inner secondary on-sale"><span class="onsale">-@(Math.Floor(Convert.ToDecimal(item.Price / item.PriceDiscount - 1) * 100))%</span></div></div>
+                                                    </div>
+                                                }
+                                                <div class="product-small box has-hover box-normal box-text-bottom">
+                                                    <div class="box-image" style="width:90%;">
+                                                        <div class="">
+                                                            <a href="/san-pham/@item.Url/@item.Id">
+                                                                <img width="300" height="300" src="@item.Logo" alt="@item.Name" sizes="(max-width: 300px) 100vw, 300px" />
+                                                            </a>
+                                                        </div>
+                                                        <div class="image-tools top right show-on-hover">
+                                                        </div>
+                                                        <div class="image-tools grid-tools text-center hide-for-small bottom hover-slide-in show-on-hover">
+                                                        </div>
+                                                    </div><!-- box-image -->
+
+                                                    <div class="box-text text-center">
+                                                        <div class="title-wrapper"><p class="name product-title"><a href="/san-pham/@item.Url/@item.Id">@item.Name</a></p></div><div class="price-wrapper">
+                                                            @if (item.PriceDiscount > 0 && item.Price > 0)
+                                                            {
+                                                                <span class="price"><del><span class="woocommerce-Price-amount amount">@Convert.ToDecimal(item.Price).ToString("N0")&nbsp;<span class="woocommerce-Price-currencySymbol">&#8363;</span></span></del> <ins><span class="woocommerce-Price-amount amount">@Convert.ToDecimal(item.PriceDiscount).ToString("N0")&nbsp;<span class="woocommerce-Price-currencySymbol">&#8363;</span></span></ins></span>
+
+                                                            }
+                                                            else if (item.Price > 0)
+                                                            {
+                                                                <span class="price">
+                                                                    <ins><span class="woocommerce-Price-amount amount">@Convert.ToDecimal(item.Price).ToString("N0")&nbsp;<span class="woocommerce-Price-currencySymbol">&#8363;</span></span></ins>
+                                                                </span>
+                                                            }
+                                                            else
+                                                            {
+                                                                <span class="price">
+                                                                    <del>
+                                                                    </del> <ins><span class="woocommerce-Price-amount amount">Liên hệ&nbsp;<span class="woocommerce-Price-currencySymbol">&#8363;</span></span></ins>
+                                                                </span>
+                                                            }
+                                                        </div>
+                                                    </div><!-- box-text -->
+                                                </div><!-- box -->
+                                            </div><!-- .col-inner -->
+                                        </div><!-- col -->
+                                    }
+                                }
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div><!-- .section-content -->
+            <style scope="scope">
+                #section_580708068 {
+                    padding-top: 22px;
+                    padding-bottom: 22px;
+                }
+            </style>
+        </section>  
+
+        <section class="section" id="section_579579626">
+            <div class="bg section-bg fill bg-fill  bg-loaded">
+            </div><!-- .section-bg -->
+            <div class="section-content relative">
+                <div class="row" id="row-2043678019">
+                    <div class="col div-no-padding small-12 large-12" data-animate="bounceIn">
+                        <div class="col-inner text-center">
+                            <h3 class="title-home" style="text-align: center;">TI VI</h3>
+                            <div class="row large-columns-5 medium-columns-3 small-columns-2 row-small slider row-slider slider-nav-circle slider-nav-push" data-flickity-options='{"imagesLoaded": true, "groupCells": "100%", "dragThreshold" : 5, "cellAlign": "left","wrapAround": true,"prevNextButtons": true,"percentPosition": true,"pageDots": false, "rightToLeft": false, "autoPlay" : false}'>
+                                @if (Tivi.Count() > 0)
+                                {
+                                    foreach (var item in Tivi)
+                                    {
+                                        <div class="col">
+                                            <div class="col-inner">
+                                                @if (item.PriceDiscount > 0 && item.Price > 0)
+                                                {
+                                                    <div class="badge-container absolute left top z-1">
+                                                        <div class="callout badge badge-circle"><div class="badge-inner secondary on-sale"><span class="onsale">-@(Math.Floor(Convert.ToDecimal(item.Price / item.PriceDiscount - 1) * 100))%</span></div></div>
+                                                    </div>
+                                                }
+                                                <div class="product-small box has-hover box-normal box-text-bottom">
+                                                    <div class="box-image" style="width:90%;">
+                                                        <div class="">
+                                                            <a href="/san-pham/@item.Url/@item.Id">
+                                                                <img width="300" height="300" src="@item.Logo" alt="@item.Name" sizes="(max-width: 300px) 100vw, 300px" />
+                                                            </a>
+                                                        </div>
+                                                        <div class="image-tools top right show-on-hover">
+                                                        </div>
+                                                        <div class="image-tools grid-tools text-center hide-for-small bottom hover-slide-in show-on-hover">
+                                                        </div>
+                                                    </div><!-- box-image -->
+
+                                                    <div class="box-text text-center">
+                                                        <div class="title-wrapper"><p class="name product-title"><a href="/san-pham/@item.Url/@item.Id">@item.Name</a></p></div><div class="price-wrapper">
+                                                            @if (item.PriceDiscount > 0 && item.Price > 0)
+                                                            {
+                                                                <span class="price"><del><span class="woocommerce-Price-amount amount">@Convert.ToDecimal(item.Price).ToString("N0")&nbsp;<span class="woocommerce-Price-currencySymbol">&#8363;</span></span></del> <ins><span class="woocommerce-Price-amount amount">@Convert.ToDecimal(item.PriceDiscount).ToString("N0")&nbsp;<span class="woocommerce-Price-currencySymbol">&#8363;</span></span></ins></span>
+
+                                                            }
+                                                            else if (item.Price > 0)
+                                                            {
+                                                                <span class="price">
+                                                                    <ins><span class="woocommerce-Price-amount amount">@Convert.ToDecimal(item.Price).ToString("N0")&nbsp;<span class="woocommerce-Price-currencySymbol">&#8363;</span></span></ins>
+                                                                </span>
+                                                            }
+                                                            else
+                                                            {
+                                                                <span class="price">
+                                                                    <del>
+                                                                    </del> <ins><span class="woocommerce-Price-amount amount">Liên hệ&nbsp;<span class="woocommerce-Price-currencySymbol">&#8363;</span></span></ins>
+                                                                </span>
+                                                            }
+                                                        </div>
+                                                    </div><!-- box-text -->
+                                                </div><!-- box -->
+                                            </div><!-- .col-inner -->
+                                        </div><!-- col -->
+                                    }
+                                }
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div><!-- .section-content -->
+
+
+            <style scope="scope">
+
+                #section_579579626 {
+                    padding-top: 22px;
+                    padding-bottom: 22px;
+                }
+            </style>
+        </section>
+
+        <section class="section" id="section_311620876">
+            <div class="bg section-bg fill bg-fill  ">
+            </div><!-- .section-bg -->
+            <div class="section-content relative">
+                <div class="row" id="row-1185135037">
+                    <div class="col div-no-padding small-12 large-12">
+                        <div class="col-inner">
+                            <h3 class="title-home" style="text-align: center;">SẢN PHẨM NỔI BẬT</h3>
+                            <div class="row align-middle align-center" id="row-28625962">
+                                <div class="col div-no-padding medium-10 small-12 large-10">
+                                    <div class="col-inner">
+                                        <div class="row large-columns-3 medium-columns- small-columns-2 row-small slider row-slider slider-nav-circle slider-nav-push" data-flickity-options='{"imagesLoaded": true, "groupCells": "100%", "dragThreshold" : 5, "cellAlign": "left","wrapAround": true,"prevNextButtons": true,"percentPosition": true,"pageDots": false, "rightToLeft": false, "autoPlay" : 4000}'>
+                                            @if (ListProductHot.Count() > 0)
+                                            {
+                                                foreach (var item in ListProductHot)
+                                                {
+                                                    <div class="col">
+                                                        <div class="col-inner">
+                                                            @if (item.PriceDiscount > 0 && item.Price > 0)
+                                                            {
+                                                                <div class="badge-container absolute left top z-1">
+                                                                    <div class="callout badge badge-circle"><div class="badge-inner secondary on-sale"><span class="onsale">-@(Math.Floor(Convert.ToDecimal(item.Price / item.PriceDiscount - 1) * 100))%</span></div></div>
+                                                                </div>
+                                                            }
+                                                            <div class="product-small box has-hover box-normal box-text-bottom">
+                                                                <div class="box-image" style="width:90%;">
+                                                                    <div class="">
+                                                                        <a href="/san-pham/@item.Url/@item.Id">
+                                                                            <img width="300" height="300" src="@item.Logo" alt="@item.Name" sizes="(max-width: 300px) 100vw, 300px" />
+                                                                        </a>
+                                                                    </div>
+                                                                    <div class="image-tools top right show-on-hover">
+                                                                    </div>
+                                                                    <div class="image-tools grid-tools text-center hide-for-small bottom hover-slide-in show-on-hover">
+                                                                    </div>
+                                                                </div><!-- box-image -->
+
+                                                                <div class="box-text text-center">
+                                                                    <div class="title-wrapper"><p class="name product-title"><a href="/san-pham/@item.Url/@item.Id">@item.Name</a></p></div><div class="price-wrapper">
+                                                                        @if (item.PriceDiscount > 0 && item.Price > 0)
+                                                                        {
+                                                                            <span class="price"><del><span class="woocommerce-Price-amount amount">@Convert.ToDecimal(item.Price).ToString("N0")&nbsp;<span class="woocommerce-Price-currencySymbol">&#8363;</span></span></del> <ins><span class="woocommerce-Price-amount amount">@Convert.ToDecimal(item.PriceDiscount).ToString("N0")&nbsp;<span class="woocommerce-Price-currencySymbol">&#8363;</span></span></ins></span>
+
+                                                                        }
+                                                                        else if (item.Price > 0)
+                                                                        {
+                                                                            <span class="price">
+                                                                                <ins><span class="woocommerce-Price-amount amount">@Convert.ToDecimal(item.Price).ToString("N0")&nbsp;<span class="woocommerce-Price-currencySymbol">&#8363;</span></span></ins>
+                                                                            </span>
+                                                                        }
+                                                                        else
+                                                                        {
+                                                                            <span class="price">
+                                                                                <del>
+                                                                                </del> <ins><span class="woocommerce-Price-amount amount">Liên hệ&nbsp;<span class="woocommerce-Price-currencySymbol">&#8363;</span></span></ins>
+                                                                            </span>
+                                                                        }
+                                                                    </div>
+                                                                </div><!-- box-text -->
+                                                            </div><!-- box -->
+                                                        </div><!-- .col-inner -->
+                                                    </div><!-- col -->
+                                                }
+                                            }
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <style scope="scope">
+                                </style>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div><!-- .section-content -->
+
+
+            <style scope="scope">
+
+                #section_311620876 {
+                    padding-top: 0px;
+                    padding-bottom: 0px;
+                }
+
+                    #section_311620876 .section-bg.bg-loaded {
+                        background-image: url(/wp-content/uploads/2019/12/ant_product_bg.jpg);
+                    }
+
+
+                @@media (min-width:550px) {
+
+                    #section_311620876 {
+                        padding-top: 30px;
+                        padding-bottom: 30px;
+                    }
+                }
+            </style>
+        </section>
+
+        <section class="section" id="section_239236887">
+            <div class="bg section-bg fill bg-fill  bg-loaded">
+            </div><!-- .section-bg -->
+            <div class="section-content relative">
+                <div class="row" id="row-617228768">
+                    <div class="col div-no-padding small-12 large-12" data-animate="bounceIn">
+                        <div class="col-inner text-center">
+                            <h3 class="title-home" style="text-align: center;">TỦ LẠNH</h3>
+                            <div class="row large-columns-5 medium-columns-3 small-columns-2 row-small slider row-slider slider-nav-circle slider-nav-push" data-flickity-options='{"imagesLoaded": true, "groupCells": "100%", "dragThreshold" : 5, "cellAlign": "left","wrapAround": true,"prevNextButtons": true,"percentPosition": true,"pageDots": false, "rightToLeft": false, "autoPlay" : false}'>
+                                @if (TuLAnh.Count() > 0)
+                                {
+                                    foreach (var item in TuLAnh)
+                                    {
+                                        <div class="col">
+                                            <div class="col-inner">
+                                                @if (item.PriceDiscount > 0 && item.Price > 0)
+                                                {
+                                                    <div class="badge-container absolute left top z-1">
+                                                        <div class="callout badge badge-circle"><div class="badge-inner secondary on-sale"><span class="onsale">-@(Math.Floor(Convert.ToDecimal(item.Price / item.PriceDiscount - 1) * 100))%</span></div></div>
+                                                    </div>
+                                                }
+                                                <div class="product-small box has-hover box-normal box-text-bottom">
+                                                    <div class="box-image" style="width:90%;">
+                                                        <div class="">
+                                                            <a href="/san-pham/@item.Url/@item.Id">
+                                                                <img width="300" height="300" src="@item.Logo" alt="@item.Name" sizes="(max-width: 300px) 100vw, 300px" />
+                                                            </a>
+                                                        </div>
+                                                        <div class="image-tools top right show-on-hover">
+                                                        </div>
+                                                        <div class="image-tools grid-tools text-center hide-for-small bottom hover-slide-in show-on-hover">
+                                                        </div>
+                                                    </div><!-- box-image -->
+
+                                                    <div class="box-text text-center">
+                                                        <div class="title-wrapper"><p class="name product-title"><a href="/san-pham/@item.Url/@item.Id">@item.Name</a></p></div><div class="price-wrapper">
+                                                            @if (item.PriceDiscount > 0 && item.Price > 0)
+                                                            {
+                                                                <span class="price"><del><span class="woocommerce-Price-amount amount">@Convert.ToDecimal(item.Price).ToString("N0")&nbsp;<span class="woocommerce-Price-currencySymbol">&#8363;</span></span></del> <ins><span class="woocommerce-Price-amount amount">@Convert.ToDecimal(item.PriceDiscount).ToString("N0")&nbsp;<span class="woocommerce-Price-currencySymbol">&#8363;</span></span></ins></span>
+
+                                                            }
+                                                            else if (item.Price > 0)
+                                                            {
+                                                                <span class="price">
+                                                                    <ins><span class="woocommerce-Price-amount amount">@Convert.ToDecimal(item.Price).ToString("N0")&nbsp;<span class="woocommerce-Price-currencySymbol">&#8363;</span></span></ins>
+                                                                </span>
+                                                            }
+                                                            else
+                                                            {
+                                                                <span class="price">
+                                                                    <del>
+                                                                    </del> <ins><span class="woocommerce-Price-amount amount">Liên hệ&nbsp;<span class="woocommerce-Price-currencySymbol">&#8363;</span></span></ins>
+                                                                </span>
+                                                            }
+                                                        </div>
+                                                    </div><!-- box-text -->
+                                                </div><!-- box -->
+                                            </div><!-- .col-inner -->
+                                        </div><!-- col -->
+                                    }
+                                }
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div><!-- .section-content -->
+            <style scope="scope">
+
+                #section_239236887 {
+                    padding-top: 0px;
+                    padding-bottom: 0px;
+                }
+
+                @@media (min-width:550px) {
+
+                    #section_239236887 {
+                        padding-top: 22px;
+                        padding-bottom: 22px;
+                    }
+                }
+            </style>
+        </section>
+
+        <section class="section" id="section_311620876">
+            <div class="bg section-bg fill bg-fill  ">
+            </div><!-- .section-bg -->
+            <div class="section-content relative">
+                <div class="row" id="row-1185135037">
+                    <div class="col div-no-padding small-12 large-12">
+                        <div class="col-inner">
+                            <h3 class="title-home" style="text-align: center;">MÁY GIẶT</h3>
+                            <div class="row align-middle align-center" id="row-28625962">
+                                <div class="col div-no-padding medium-10 small-12 large-10">
+                                    <div class="col-inner">
+                                        <div class="row large-columns-3 medium-columns- small-columns-2 row-small slider row-slider slider-nav-circle slider-nav-push" data-flickity-options='{"imagesLoaded": true, "groupCells": "100%", "dragThreshold" : 5, "cellAlign": "left","wrapAround": true,"prevNextButtons": true,"percentPosition": true,"pageDots": false, "rightToLeft": false, "autoPlay" : 4000}'>
+                                            @if (MayGiat.Count() > 0)
+                                            {
+                                                foreach (var item in MayGiat)
+                                                {
+                                                    <div class="col">
+                                                        <div class="col-inner">
+                                                            @if (item.PriceDiscount > 0 && item.Price > 0)
+                                                            {
+                                                                <div class="badge-container absolute left top z-1">
+                                                                    <div class="callout badge badge-circle"><div class="badge-inner secondary on-sale"><span class="onsale">-@(Math.Floor(Convert.ToDecimal(item.Price / item.PriceDiscount - 1) * 100))%</span></div></div>
+                                                                </div>
+                                                            }
+                                                            <div class="product-small box has-hover box-normal box-text-bottom">
+                                                                <div class="box-image" style="width:90%;">
+                                                                    <div class="">
+                                                                        <a href="/san-pham/@item.Url/@item.Id">
+                                                                            <img width="300" height="300" src="@item.Logo" alt="@item.Name" sizes="(max-width: 300px) 100vw, 300px" />
+                                                                        </a>
+                                                                    </div>
+                                                                    <div class="image-tools top right show-on-hover">
+                                                                    </div>
+                                                                    <div class="image-tools grid-tools text-center hide-for-small bottom hover-slide-in show-on-hover">
+                                                                    </div>
+                                                                </div><!-- box-image -->
+
+                                                                <div class="box-text text-center">
+                                                                    <div class="title-wrapper"><p class="name product-title"><a href="/san-pham/@item.Url/@item.Id">@item.Name</a></p></div><div class="price-wrapper">
+                                                                        @if (item.PriceDiscount > 0 && item.Price > 0)
+                                                                        {
+                                                                            <span class="price"><del><span class="woocommerce-Price-amount amount">@Convert.ToDecimal(item.Price).ToString("N0")&nbsp;<span class="woocommerce-Price-currencySymbol">&#8363;</span></span></del> <ins><span class="woocommerce-Price-amount amount">@Convert.ToDecimal(item.PriceDiscount).ToString("N0")&nbsp;<span class="woocommerce-Price-currencySymbol">&#8363;</span></span></ins></span>
+
+                                                                        }
+                                                                        else if (item.Price > 0)
+                                                                        {
+                                                                            <span class="price">
+                                                                                <ins><span class="woocommerce-Price-amount amount">@Convert.ToDecimal(item.Price).ToString("N0")&nbsp;<span class="woocommerce-Price-currencySymbol">&#8363;</span></span></ins>
+                                                                            </span>
+                                                                        }
+                                                                        else
+                                                                        {
+                                                                            <span class="price">
+                                                                                <del>
+                                                                                </del> <ins><span class="woocommerce-Price-amount amount">Liên hệ&nbsp;<span class="woocommerce-Price-currencySymbol">&#8363;</span></span></ins>
+                                                                            </span>
+                                                                        }
+                                                                    </div>
+                                                                </div><!-- box-text -->
+                                                            </div><!-- box -->
+                                                        </div><!-- .col-inner -->
+                                                    </div><!-- col -->
+                                                }
+                                            }
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <style scope="scope">
+                                </style>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div><!-- .section-content -->
+
+
+            <style scope="scope">
+
+                #section_311620876 {
+                    padding-top: 0px;
+                    padding-bottom: 0px;
+                }
+
+                    #section_311620876 .section-bg.bg-loaded {
+                        background-image: url(/wp-content/uploads/2019/12/ant_product_bg.jpg);
+                    }
+
+
+                @@media (min-width:550px) {
+
+                    #section_311620876 {
+                        padding-top: 30px;
+                        padding-bottom: 30px;
+                    }
+                }
+            </style>
+        </section>
+
+        <section class="section" id="section_231368661">
+            <div class="bg section-bg fill bg-fill  bg-loaded">
+            </div><!-- .section-bg -->
+            <div class="section-content relative">
+                <div class="row" id="row-1426043745">
+                    <div class="col div-no-padding small-12 large-12">
+                        <div class="col-inner text-center">
+                            <h3 class="title-home" style="text-align: center;">TIN TỨC </h3>
+                            <div class="row large-columns-4 medium-columns-1 small-columns-1">
+                                @if (ListNews.Count() > 0)
+                                {
+                                    foreach (var item in ListNews)
+                                    {
+                                        <div class="col post-item">
+                                            <div class="col-inner">
+                                                <a href="/chi-tiet-tin/@item.Url/@item.Id" class="plain">
+                                                    <div class="box box-normal box-text-bottom box-blog-post has-hover">
+                                                        <div class="box-image">
+                                                            <div class="image-cover" style="padding-top:56.25%;">
+                                                                <img width="600" height="400" src="@item.Logo" alt="@item.Name" sizes="(max-width: 600px) 100vw, 600px" />
+                                                            </div>
+                                                        </div><!-- .box-image -->
+                                                        <div class="box-text text-left">
+                                                            <div class="box-text-inner blog-post-inner">
+                                                                <h5 class="post-title is-large ">@item.Name</h5>
+                                                                <div class="is-divider"></div>
+                                                                @if (item.Description.Length > 120)
+                                                                {
+                                                                    <p class="from_the_blog_excerpt ">
+                                                                        @item.Description.Substring(0, 120)...
+                                                                    </p>
+                                                                }
+                                                                else
+                                                                {
+                                                                    <p class="from_the_blog_excerpt "> @item.Description</p>
+                                                                }
+                                                            </div><!-- .box-text-inner -->
+                                                        </div><!-- .box-text -->
+                                                    </div><!-- .box -->
+                                                </a><!-- .link -->
+                                            </div><!-- .col-inner -->
+                                        </div><!-- .col -->
+
+                                    }
+                                }
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div><!-- .section-content -->
+            <style scope="scope">
+
+                #section_231368661 {
+                    padding-top: 0px;
+                    padding-bottom: 0px;
+                }
+            </style>
+        </section>
+    </div>
+</main><!-- #main -->

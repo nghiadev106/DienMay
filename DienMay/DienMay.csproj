@@ -1,0 +1,115 @@
+<Project Sdk="Microsoft.NET.Sdk.Web">
+
+  <PropertyGroup>
+    <TargetFramework>net5.0</TargetFramework>
+    <UserSecretsId>aspnet-DienMay-3B92C98B-EA5F-4CC8-9024-54F0ADEB08AB</UserSecretsId>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <Compile Remove="Areas\Admin\Data\**" />
+    <Content Remove="Areas\Admin\Data\**" />
+    <EmbeddedResource Remove="Areas\Admin\Data\**" />
+    <None Remove="Areas\Admin\Data\**" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Content Remove="wwwroot\robots.txt" />
+    <Content Remove="wwwroot\sitemap.xml" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Include="..\.editorconfig" Link=".editorconfig" />
+    <None Include="wwwroot\js\jquery.accordion.source.js" />
+    <None Include="wwwroot\js\jquery.ddslick.min.js" />
+    <None Include="wwwroot\js\theme.js" />
+    <None Include="wwwroot\plugins\bootstrap\js\bootstrap.min.js" />
+    <None Include="wwwroot\plugins\countdown\jquery.countdown.min.js" />
+    <None Include="wwwroot\plugins\countdown\jquery.plugin.min.js" />
+    <None Include="wwwroot\plugins\elevatezoom\jquery.elevatezoom.js" />
+    <None Include="wwwroot\plugins\font-awesome\fonts\fontawesome-webfont5b62.svg" />
+    <None Include="wwwroot\plugins\font-awesome\fonts\fontawesome-webfont5b62.woff2" />
+    <None Include="wwwroot\plugins\jquery-ui-1.12.0\jquery-ui.min.js" />
+    <None Include="wwwroot\plugins\jquery\jquery-1.11.3.min.js" />
+    <None Include="wwwroot\plugins\magnific\jquery.magnific-popup.min.js" />
+    <None Include="wwwroot\plugins\Nivo-Slider\jquery.nivo.slider.js" />
+    <None Include="wwwroot\plugins\owl-carousel\owl.carousel.min.js" />
+    <None Include="wwwroot\robots.txt" />
+    <None Include="wwwroot\sitemap.xml" />
+    <None Include="wwwroot\wp-content\plugins\cf7-icons-and-labels\js\cf7_script4b0b.js" />
+    <None Include="wwwroot\wp-content\plugins\contact-form-7\includes\js\scripts3c21.js" />
+    <None Include="wwwroot\wp-content\plugins\devvn-quick-buy\js\devvn-quick-buy4c71.js" />
+    <None Include="wwwroot\wp-content\plugins\devvn-quick-buy\js\jquery.validate.min4c71.js" />
+    <None Include="wwwroot\wp-content\plugins\devvn-woocommerce-reviews\js\devvn-woocommerce-reviews19f6.js" />
+    <None Include="wwwroot\wp-content\plugins\devvn-woocommerce-reviews\library\magnific-popup\magnific-popup19f6.js" />
+    <None Include="wwwroot\wp-content\plugins\mega_main_menu\framework\src\fonts\icomoon.svg" />
+    <None Include="wwwroot\wp-content\plugins\mega_main_menu\src\js\frontende7f3.js" />
+    <None Include="wwwroot\wp-content\plugins\woocommerce\assets\css\photoswipe\default-skin\default-skin.svg" />
+    <None Include="wwwroot\wp-content\plugins\woocommerce\assets\js\frontend\add-to-cart-variation.mincd70.js" />
+    <None Include="wwwroot\wp-content\plugins\woocommerce\assets\js\frontend\add-to-cart.mincd70.js" />
+    <None Include="wwwroot\wp-content\plugins\woocommerce\assets\js\frontend\address-i18n.mincd70.js" />
+    <None Include="wwwroot\wp-content\plugins\woocommerce\assets\js\frontend\cart-fragments.mincd70.js" />
+    <None Include="wwwroot\wp-content\plugins\woocommerce\assets\js\frontend\cart.mincd70.js" />
+    <None Include="wwwroot\wp-content\plugins\woocommerce\assets\js\frontend\country-select.mincd70.js" />
+    <None Include="wwwroot\wp-content\plugins\woocommerce\assets\js\frontend\lost-password.mincd70.js" />
+    <None Include="wwwroot\wp-content\plugins\woocommerce\assets\js\frontend\password-strength-meter.mincd70.js" />
+    <None Include="wwwroot\wp-content\plugins\woocommerce\assets\js\frontend\single-product.mincd70.js" />
+    <None Include="wwwroot\wp-content\plugins\woocommerce\assets\js\frontend\woocommerce.mincd70.js" />
+    <None Include="wwwroot\wp-content\plugins\woocommerce\assets\js\jquery-blockui\jquery.blockUI.min44fd.js" />
+    <None Include="wwwroot\wp-content\plugins\woocommerce\assets\js\js-cookie\js.cookie.min6b25.js" />
+    <None Include="wwwroot\wp-content\plugins\woocommerce\assets\js\photoswipe\photoswipe-ui-default.min0235.js" />
+    <None Include="wwwroot\wp-content\plugins\woocommerce\assets\js\photoswipe\photoswipe.min0235.js" />
+    <None Include="wwwroot\wp-content\plugins\woocommerce\assets\js\selectWoo\selectWoo.full.min0ba6.js" />
+    <None Include="wwwroot\wp-content\themes\flatsome\assets\css\icons\fl-icons.svg" />
+    <None Include="wwwroot\wp-content\themes\flatsome\assets\css\icons\fl-icons.woff2" />
+    <None Include="wwwroot\wp-content\themes\flatsome\assets\js\flatsome12f9.js" />
+    <None Include="wwwroot\wp-content\themes\flatsome\assets\js\woocommerce12f9.js" />
+    <None Include="wwwroot\wp-content\themes\flatsome\assets\libs\infinite-scroll.pkgd.min459e.js" />
+    <None Include="wwwroot\wp-content\themes\flatsome\inc\extensions\flatsome-infinite-scroll\flatsome-infinite-scroll7ef2.js" />
+    <None Include="wwwroot\wp-content\themes\flatsome\inc\extensions\flatsome-live-search\flatsome-live-search12f9.js" />
+    <None Include="wwwroot\wp-includes\js\comment-reply.min4b0b.js" />
+    <None Include="wwwroot\wp-includes\js\hoverIntent.minc245.js" />
+    <None Include="wwwroot\wp-includes\js\jquery\jquery-migrate.min330a.js" />
+    <None Include="wwwroot\wp-includes\js\jquery\jqueryb8ff.js" />
+    <None Include="wwwroot\wp-includes\js\underscore.min4511.js" />
+    <None Include="wwwroot\wp-includes\js\wp-embed.min4b0b.js" />
+    <None Include="wwwroot\wp-includes\js\wp-util.min4b0b.js" />
+    <None Include="wwwroot\wp-includes\js\zxcvbn-async.min5152.js" />
+    <None Include="wwwroot\wp-json\oembed\1.0\embed04cb" />
+    <None Include="wwwroot\wp-json\oembed\1.0\embed0831" />
+    <None Include="wwwroot\wp-json\oembed\1.0\embed1a8e" />
+    <None Include="wwwroot\wp-json\oembed\1.0\embed3312" />
+    <None Include="wwwroot\wp-json\oembed\1.0\embed3430" />
+    <None Include="wwwroot\wp-json\oembed\1.0\embed444e" />
+    <None Include="wwwroot\wp-json\oembed\1.0\embed5deb" />
+    <None Include="wwwroot\wp-json\oembed\1.0\embed839b" />
+    <None Include="wwwroot\wp-json\oembed\1.0\embed863e" />
+    <None Include="wwwroot\wp-json\oembed\1.0\embed934b" />
+    <None Include="wwwroot\wp-json\oembed\1.0\embedb2ce" />
+    <None Include="wwwroot\wp-json\oembed\1.0\embedbb72" />
+    <None Include="wwwroot\wp-json\oembed\1.0\embedbfc5" />
+    <None Include="wwwroot\wp-json\oembed\1.0\embedd007" />
+    <None Include="wwwroot\wp-json\oembed\1.0\embeddea3" />
+    <None Include="wwwroot\wp-json\oembed\1.0\embedec07" />
+    <None Include="wwwroot\wp-json\oembed\1.0\embeded60" />
+    <None Include="wwwroot\wp-json\oembed\1.0\embedf330" />
+    <None Include="wwwroot\wp-json\oembed\1.0\embedf63e" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Microsoft.AspNetCore.Diagnostics.EntityFrameworkCore" Version="5.0.9" />
+    <PackageReference Include="Microsoft.AspNetCore.Identity.EntityFrameworkCore" Version="5.0.9" />
+    <PackageReference Include="Microsoft.AspNetCore.Identity.UI" Version="5.0.9" />
+    <PackageReference Include="Microsoft.AspNetCore.Mvc.Razor.RuntimeCompilation" Version="5.0.9" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore.SqlServer" Version="5.0.9" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore.Tools" Version="5.0.9">
+      <PrivateAssets>all</PrivateAssets>
+      <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+    </PackageReference>
+    <PackageReference Include="Microsoft.VisualStudio.Web.CodeGeneration.Design" Version="5.0.2" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Folder Include="wwwroot\uploads\" />
+  </ItemGroup>
+
+</Project>
